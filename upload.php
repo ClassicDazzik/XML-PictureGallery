@@ -1,8 +1,8 @@
 <?php
 
-$xml = simplexml_load_file('gallery/data.xml');
+$xml = simplexml_load_file('data.xml');
 $senderName = $_POST['sender'];
-$imgDate = date('d-n-y')
+$imgDate = date('d-n-y');
 $imgFolder = "img/";
 $imgFile = $imgFolder . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -39,12 +39,19 @@ if ($uploadOk == 0) {
     }  
 }
 
-$xmlAdd = $xml->addChild('img');
+
 
 if ($uploadOk == 1) {
+  $xmlAdd = $xml->addChild('img');
   $xmlAdd->addChild('name', $imgFile);
   $xmlAdd->addChild('sendername', $senderName);
-  $xmlAdd->addChild('date', $imgDate)
-  $xmlAdd->addAttribute('accepted', '0')
+  $xmlAdd->addChild('date', $imgDate);
+  $xmlAdd->addAttribute('accepted', '0');
+ 
+  $dom = new DOMDocument("1.0");
+  $dom->preserveWhiteSpace = false;
+  $dom->formatOutput = true;
+  $dom->loadXML($xml->asXML());
+  $dom->save('data.xml');
 }
 ?>
