@@ -39,8 +39,6 @@ if ($uploadOk == 0) {
     }  
 }
 
-
-
 if ($uploadOk == 1) {
   $xmlAdd = $xml->addChild('img');
   $xmlAdd->addChild('name', $imgFile);

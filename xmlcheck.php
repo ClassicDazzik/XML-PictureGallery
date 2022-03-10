@@ -1,4 +1,4 @@
 <?php
-$xml = simplexml_load_file('gallery/data.xml');
+$xml = simplexml_load_file('data.xml');
 var_dump($xml);
 ?>
