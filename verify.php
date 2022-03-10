@@ -1,20 +1,36 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <html>
 <head>
-<?php
-$dom = new DOMDocument ('1.0');
-$xml = simplexml_load_file('data.xml');
-foreach($xml->img as $img){
-    if($img['accepted'] == '0'){
-        $img = $dom->createElement('img');
-        $domAttributeSource = $dom->createAttribute('src');
-        $domAttributeSource->value = $_GET
-    }
-}
-?>  
-<img src="img/4546B.png" alt="im trying ok" style="width:600px;height:400px"><br>
-<input type="submit" value="Accept" name="yes">
-<input type="submit" value="Delete" name="no">
 </head>
+<body>
+
+<?php
+if (isset($_GET['delete']) && isset($_GET['id'])){
+    echo `<p>Poistetaan kuva {$_GET['id']}</p>`;
+} 
+?>
+
+
+<?php
+$xml = simplexml_load_file('data.xml');
+$i = 0;
+?>
+
+<?php foreach ($xml->img as $img): ?>
+   
+    <img src="img/<?php echo $img->name ?>" alt="<?php echo $img->sendername; ?>" style="width:600px;height:400px"><br>
+   
+    <?php if ($img['accepted'] == '0'): ?>
+        <form action="" method="">
+            <input type="text" value="<?php echo $i++; ?>" name="id">
+            <input type="submit" value="Accept" name="accept">
+            <input type="submit" value="Delete" name="delete">
+        </form>
+    <?php endif; ?>
+    
+<?php endforeach; ?>
+
+</body>
 </html>
