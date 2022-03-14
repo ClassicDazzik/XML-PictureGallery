@@ -7,6 +7,10 @@ $imgFolder = "img/";
 $imgFile = $imgFolder . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imgFileType = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION));
+
+if (!file_exists('./img')) {
+  mkdir('./img', 0777, true);
+}
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
