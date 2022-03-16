@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL & ~E_NOTICE);
 
 $xml = simplexml_load_file('data.xml');
 $senderName = $_POST['sender'];
@@ -56,10 +57,8 @@ if ($uploadOk == 1) {
   $dom->loadXML($xml->asXML());
   $dom->save('data.xml');
 
-  header("gallery.php");
-  echo "Redirecting to Gallery";
+  echo " Redirecting to Gallery...";
+  header('Location: gallery.php');
 }
-
-
 
 ?>

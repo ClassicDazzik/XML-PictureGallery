@@ -8,13 +8,15 @@
 
 <?php
 $xml = simplexml_load_file('data.xml');
-$imgIndex = intval($_GET['id']);
 
 if (isset($_GET['delete']) && isset($_GET['id'])){
-    unlink($xml->img->name[$imgIndex]);
+    $imgIndex = intval($_GET['id']);
+    $ImgFileRemove = $xml->img->name[$imgIndex];
+    unlink($ImgFileRemove);
     unset($xml->img[$imgIndex]);
 }
 if (isset($_GET['accept']) && isset($_GET['id'])){
+    $imgIndex = intval($_GET['id']);
     $xml->img[$imgIndex]['accepted'] = '1';
 }
 if (isset($_GET['cancel']) && isset($_GET['id'])){
