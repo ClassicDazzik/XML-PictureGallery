@@ -34,7 +34,7 @@ if($imgFileType != "jpg" && $imgFileType != "png" && $imgFileType != "jpeg") {
     $uploadOk = 0;
   }
 if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
+    echo " File was not uploaded.";
   } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $imgFile)) {
       echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
@@ -55,5 +55,11 @@ if ($uploadOk == 1) {
   $dom->formatOutput = true;
   $dom->loadXML($xml->asXML());
   $dom->save('data.xml');
+
+  header("gallery.php");
+  echo "Redirecting to Gallery";
 }
+
+
+
 ?>
