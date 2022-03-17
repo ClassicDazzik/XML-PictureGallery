@@ -6,6 +6,11 @@ $xml = simplexml_load_file('data.xml');
 <head>
   <title>Gallery</title>
 <style>
+.menu {
+  width: 100%;
+  clear: both;
+}
+
 div.gallery {
   margin: 5px;
   border: 1px solid #ccc;
@@ -40,8 +45,9 @@ foreach ($xml->img as $img): ?>
 </div>
 <?php endif; ?>
 <?php endforeach; ?>
+<div class="menu">
 <button onclick="location.href = 'uploader.html';" id="galleryBtn" class="float-left submit-button">Upload a picture!</button>
 <button onclick="location.href = 'verify.php';" id="verifyBtn" class="float-left submit-button">Go verify a picture</button>
-
+</div>
 </body>
 </html>
