@@ -3,6 +3,7 @@
 <html lang="en">
 <html>
 <head>
+    <title>Accept Pictures</title>
 </head>
 <body>
 
@@ -54,6 +55,6 @@ $dom->save('data.xml');
     <?php $i++;?>
 
 <?php endforeach; ?>
-
+<button onclick="location.href = 'uploader.html';" id="backBtn" class="float-left submit-button">Go back</button>
 </body>
 </html>

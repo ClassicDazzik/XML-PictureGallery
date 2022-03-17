@@ -4,6 +4,7 @@ $xml = simplexml_load_file('data.xml');
 
 <html>
 <head>
+  <title>Gallery</title>
 <style>
 div.gallery {
   margin: 5px;
@@ -39,5 +40,8 @@ foreach ($xml->img as $img): ?>
 </div>
 <?php endif; ?>
 <?php endforeach; ?>
+<button onclick="location.href = 'uploader.html';" id="galleryBtn" class="float-left submit-button">Upload a picture!</button>
+<button onclick="location.href = 'verify.php';" id="verifyBtn" class="float-left submit-button">Go verify a picture</button>
+
 </body>
 </html>

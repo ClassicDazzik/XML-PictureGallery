@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>XML Pic Gallery</title>
+    <title>Picture Upload</title>
   </head>
 <body>
 
@@ -10,7 +10,8 @@
   <input type="file" name="fileToUpload" id="fileToUpload" accept=".png,.jpg,.jpeg"><br>
   <input type="text" name="sender" id="sender">
   <input type="submit" value="Upload Image" name="submit">
-</form>
-
+</form><br>
+<button onclick="location.href = 'gallery.php';" id="galleryBtn" class="float-left submit-button">Gallery</button>
+<button onclick="location.href = 'verify.php';" id="verifyBtn" class="float-left submit-button">Accept Page</button>
 </body>
 </html>

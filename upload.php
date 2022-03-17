@@ -61,4 +61,9 @@ if ($uploadOk == 1) {
   header('Location: gallery.php');
 }
 
+if ($uploadOk == 0) {
+  echo " Failed to upload! Going back...";
+  header('Location: uploader.html');
+}
+
 ?>
